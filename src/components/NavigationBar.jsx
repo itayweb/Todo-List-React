@@ -11,7 +11,7 @@ function NavigationBar() {
                 <Container>
                     <Navbar.Brand as={Link} to="/todo">MyDo</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/todo">Todo {todos.length}</Nav.Link>
+                        <Nav.Link as={Link} to="/todo">To-do {todos.length}</Nav.Link>
                         <Nav.Link as={Link} to="/done">Done {doneTodos.length}</Nav.Link>
                     </Nav>
                 </Container>

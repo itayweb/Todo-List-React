@@ -7,7 +7,7 @@ function DonePage() {
 
     return (
         <div className="list">
-            <h3>Finished todos</h3>
+            <h3 className="mt-2">Finished to-dos</h3>
             <div>
                 {
                     doneTodos.map((doneTodos, index) => {
