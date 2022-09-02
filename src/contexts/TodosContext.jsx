@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const TodosContext = createContext();
 
@@ -9,31 +10,30 @@ export function TodosProvider({children}) {
     const addTodo = (title, event) => {
         event.preventDefault();
         const date = new Date().toLocaleString();
-        setTodos(prevState => [{title, date}, ...prevState]);
+        const id = uuidv4();
+        setTodos(prevState => [{title, date, id}, ...prevState]);
     };
 
-    const finishTodo = (title, date, event) => {
-        setDoneTodos(prevState => [{ title, date }, ...prevState]);
-        deleteTodo(title, date, event);
+    const finishTodo = (title, date, id, event) => {
+        setDoneTodos(prevState => [{ title, date , id }, ...prevState]);
+        deleteTodo(event);
     };
 
-    const returnTodo = (title, date, event) => {
-        setTodos(prevState => [{title, date}, ...prevState]);
-        deleteDoneTodo(title, date, event);
+    const returnTodo = (title, date, id, event) => {
+        setTodos(prevState => [{title, date, id}, ...prevState]);
+        deleteDoneTodo(event);
     }
 
-    const deleteTodo = (title, date, event) => {
-        // setTodos(todos.splice(todos.indexOf({title, date}, 1)));
+    const deleteTodo = (event) => {
         setTodos(todos.filter((todo) => {
-            return todo.title !== event.target.getAttribute("todotitle");
+            return todo.id !== event.target.getAttribute("todotitle");
         }));
     };
 
-    const deleteDoneTodo = (title, date, event) => {
+    const deleteDoneTodo = (event) => {
         setDoneTodos(doneTodos.filter((todo) => {
-            return todo.title !== event.target.getAttribute("todotitle");
+            return todo.id !== event.target.getAttribute("todotitle");
         }));
-        // setDoneTodos(doneTodos.splice(todos.indexOf({title, date}, 1)));
     };
 
 

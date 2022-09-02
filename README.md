@@ -1,3 +1,19 @@
+# Learning progress
+ - On August 22, started to learn ReactJS, starting with basic understanding with working with React Components, useState and more..
+ - On August 31, started working on this mini project, To-Do List web app
+ - On September 1, finished working on functionality and started working on styling
+ - On September 2, finished styling using React Bootstrap library
+
+# Things I've learned during making this mini project
+ - How to work with the React Context API to store the to-dos across the two pages
+ - How to work with the React Bootstrap framework to style the web app
+ - How to work with the React Router library to navigate across the pages and dealing with unknown page (404)
+
+# Project Features
+ - ➕ Add todos
+ - 🗑️ Delete todos
+ - 💾 Save across pages
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

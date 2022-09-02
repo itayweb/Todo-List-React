@@ -1,20 +1,19 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
-import Nav from './components/Nav';
+import NavigationBar from './components/NavigationBar';
+import NotFound from './pages/404';
 import DonePage from './pages/DonePage';
-import HelpPage from './pages/HelpPage';
-import HomePage from './pages/HomePage';
 import TodoPage from './pages/TodoPage';
 
 function App() {
   return (
     <div>
-          <Nav />
+          <NavigationBar />
           <Routes>
-            <Route path='/' element={<HomePage/>}/>
+            <Route path='/' element={<Navigate replace to="/todo"/>}/>
             <Route path='/todo' element={<TodoPage/>}/>
             <Route path='/done' element={<DonePage/>}/>
-            <Route path='/help' element={<HelpPage/>}/>
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
     </div>
   );

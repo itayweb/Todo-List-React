@@ -6,14 +6,14 @@ function DonePage() {
     const {doneTodos} = useContext(TodosContext);
 
     return (
-        <div>
-            <h3>Finished Todos</h3>
+        <div className="list">
+            <h3>Finished todos</h3>
             <div>
                 {
                     doneTodos.map((doneTodos, index) => {
                         return (
                             <div key={index}>
-                                <Todo title={doneTodos.title} date={doneTodos.date} type="doneTodo"/>
+                                <Todo title={doneTodos.title} date={doneTodos.date} uid={doneTodos.id} type="doneTodo" className="todo-done"/>
                             </div>
                         );
                     })

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { Button, Card } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import TodosContext from "../contexts/TodosContext";
 
@@ -6,32 +7,35 @@ function Todo(props) {
     const title = props.title;
     const date = props.date;
     const type = props.type;
+    const id = props.uid;
+    const todoStatus = type === "todo" ? "todo-body" : "todo-body-finished";
     const {finishTodo, returnTodo, deleteTodo, deleteDoneTodo} = useContext(TodosContext);
-    const [optionsState, setOptionsState] = useState(false);
 
-    const todoOptions = (event) => {
+    const handleDeleteTodo = (event) => {
         if (type === "todo") {
-            deleteTodo(title, date, event);
+            deleteTodo(event);
         }
         else if (type === "doneTodo") {
-            deleteDoneTodo(title, date, event);
+            deleteDoneTodo(event);
         }
     }
 
     const handleTodo = (event) => {
         if (type === "todo") {
-            finishTodo(title, date, event);
+            finishTodo(title, date, id, event);
         }
         else if (type === "doneTodo") {
-            returnTodo(title, date, event);
+            returnTodo(title, date, id, event);
         }
     }
 
     return (
-        <div>
-            <button type="button" onClick={handleTodo} todotitle={title}>{title} {date}</button>
-            <button type="button" onClick={todoOptions} todotitle={title}><AiFillDelete/></button>
-        </div>
+        <Card style={{ width: '25rem'}} className="m-3" id="todo">
+            <Card.Body>
+                <Card.Text onClick={handleTodo} todotitle={id} className={todoStatus}>{title} {date}</Card.Text>
+                <Button onClick={handleDeleteTodo} todotitle={id} variant="outline-danger"><AiFillDelete/></Button>
+            </Card.Body>
+        </Card>
     );
 }
 
