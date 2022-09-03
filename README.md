@@ -1,3 +1,6 @@
+# Important
+If you wish to clone the project and run it locally, remember to run `npm install` first and then `npm start` afterwards
+
 # Learning progress
  - On August 22, started to learn ReactJS, starting with basic understanding with working with React Components, useState and more..
  - On August 31, started working on this mini project, To-Do List web app
@@ -25,7 +28,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000/Todo-List-React](http://localhost:3000/Todo-List-React) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
